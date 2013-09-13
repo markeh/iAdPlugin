@@ -1,6 +1,8 @@
 # Cordova AdPlugin #
 by Shazron Abdullah
 
+## THIS PLUGIN IS CURRENTLY UN-MAINTAINED ##
+
 ## Adding the Plugin to your project ##
 
 Using this plugin requires [Cordova](http://github.com/apache/incubator-cordova-ios) and iAd. iAd requires at least the [iOS 4 SDK](http://developer.apple.com/iphone).
