@@ -180,6 +180,7 @@
 	}
 	else 
 	{
+		//remove these for 
 		[UIView beginAnimations:@"blah" context:NULL];
 		[UIView setAnimationCurve:UIViewAnimationCurveEaseInOut];
 		
@@ -196,14 +197,22 @@
 #pragma mark -
 #pragma ADBannerViewDelegate
 
-- (void)bannerViewDidLoadAd:(ADBannerView *)banner
-{
+//js function iAdBannerViewDidLoadAdEventHandler not firing, changed this method to be like failedtoreceivead method
+- (void)bannerViewDidLoadAd:(ADBannerView *)banner {
+
 	Class adBannerViewClass = NSClassFromString(@"ADBannerView");
     if (adBannerViewClass)
     {
 
-		[super writeJavascript:@"Cordova.fireEvent('iAdBannerViewDidLoadAdEvent');"];
-
+        NSString* jsString =
+		@"(function(){"
+		"var e = document.createEvent('Events');"
+		"e.initEvent('iAdBannerViewDidLoadAdEvent');"
+		"document.dispatchEvent(e);"
+		"})();";
+		
+		[super writeJavascript:jsString];
+        
     }
 }
 
